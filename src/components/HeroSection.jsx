@@ -178,7 +178,7 @@ export default function HeroSection() {
             <div className="absolute inset-0 overflow-hidden rounded-[32px] border border-gray-200 bg-white/70 backdrop-blur-sm" />
             <div className="absolute inset-0 overflow-hidden rounded-[32px]">
               <Spline
-                scene="https://prod.spline.design/41MGRk-UDPKO-l6W/scene.splinecode"
+                scene="https://prod.spline.design/ezRAY9QD27kiJcur/scene.splinecode"
                 style={{ width: '100%', height: '100%' }}
               />
               {/* Soft gradient overlay for depth without blocking interaction */}

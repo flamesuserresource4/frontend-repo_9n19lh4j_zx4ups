@@ -1,8 +1,9 @@
 import HeroSection from './components/HeroSection';
 import ServicesSection from './components/ServicesSection';
 import CaseStudiesSection from './components/CaseStudiesSection';
-import AboutSection from './components/AboutSection';
 import MethodologySection from './components/MethodologySection';
+import SocialProofSection from './components/SocialProofSection';
+import AboutSection from './components/AboutSection';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <ServicesSection />
       <CaseStudiesSection />
       <MethodologySection />
+      <SocialProofSection />
       <AboutSection />
       <footer className="border-t border-gray-200 bg-white">
         <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col items-center justify-between gap-4 md:flex-row">
