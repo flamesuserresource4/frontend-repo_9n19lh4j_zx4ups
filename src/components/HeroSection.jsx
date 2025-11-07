@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Spline from '@splinetool/react-spline';
 
 const ACCENT = '#2C5F4D';
 
@@ -168,30 +169,24 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right: Supporting visual (approx 50%) */}
+        {/* Right: Spline 3D object (approx 50%) */}
         <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
           <motion.div
             style={{ y: sculptureY, opacity: sculptureOpacity }}
             className="relative mx-auto aspect-[4/3] w-full max-w-2xl"
           >
-            <div className="absolute inset-0 rounded-[32px] border border-gray-200 bg-white/70 backdrop-blur-sm" />
-            <div className="absolute inset-0 grid place-items-center overflow-hidden rounded-[32px]">
-              {/* Abstract sculpture image with very slow rotation (1 rpm = 60s) */}
-              <img
-                src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92a16?q=80&w=1600&auto=format&fit=crop"
-                alt="Abstract sculpture representing structured creativity"
-                className="h-full w-full scale-105 object-cover opacity-95"
-                style={{ animation: 'spin-slow 60s linear infinite' }}
+            <div className="absolute inset-0 overflow-hidden rounded-[32px] border border-gray-200 bg-white/70 backdrop-blur-sm" />
+            <div className="absolute inset-0 overflow-hidden rounded-[32px]">
+              <Spline
+                scene="https://prod.spline.design/41MGRk-UDPKO-l6W/scene.splinecode"
+                style={{ width: '100%', height: '100%' }}
               />
+              {/* Soft gradient overlay for depth without blocking interaction */}
+              <div className="pointer-events-none absolute inset-0 rounded-[32px]" style={{ background: 'radial-gradient(60% 80% at 50% 40%, rgba(250,250,250,0) 0%, rgba(250,250,250,0) 50%, rgba(250,250,250,0.6) 100%)' }} />
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Local keyframes for slow rotation */}
-      <style>{`
-        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      `}</style>
     </section>
   );
 }
