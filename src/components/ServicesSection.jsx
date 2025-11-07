@@ -181,31 +181,36 @@ export default function ServicesSection() {
 
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black/40 data-[state=open]:animate-fadeIn" />
-          <Dialog.Content className="fixed left-1/2 top-1/2 w-[92vw] max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6 shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out">
+          <Dialog.Overlay
+            className="fixed inset-0 bg-black/40 data-[state=open]:animate-fadeIn"
+            onClick={() => setOpen(false)}
+          />
+          <Dialog.Content
+            className="fixed left-1/2 top-1/2 w-[92vw] max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-white p-6 shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out"
+            onEscapeKeyDown={() => setOpen(false)}
+            onPointerDownOutside={() => setOpen(false)}
+          >
             <div className="flex items-start justify-between gap-4">
               <div>
                 <Dialog.Title className="font-serif text-3xl tracking-wide">{activeTrigger.title}</Dialog.Title>
                 <Dialog.Description className="mt-2 text-sm text-gray-600">{activeTrigger.copy}</Dialog.Description>
               </div>
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="Close"
-                className="rounded-md p-2 hover:bg-gray-100"
-              >
-                <X size={18} />
-              </button>
+              <Dialog.Close asChild>
+                <button
+                  aria-label="Close"
+                  className="rounded-md p-2 hover:bg-gray-100"
+                >
+                  <X size={18} />
+                </button>
+              </Dialog.Close>
             </div>
             <div className="mt-5 text-[15px] leading-relaxed text-gray-800">
               {activeTrigger.details}
             </div>
             <div className="mt-6 flex items-center justify-end gap-3">
-              <button
-                className="rounded-full border px-4 py-2 text-sm"
-                onClick={() => setOpen(false)}
-              >
-                Close
-              </button>
+              <Dialog.Close asChild>
+                <button className="rounded-full border px-4 py-2 text-sm">Close</button>
+              </Dialog.Close>
               <a
                 href="#contact"
                 className="rounded-full px-5 py-2 text-sm text-white"

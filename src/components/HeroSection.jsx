@@ -144,7 +144,7 @@ export default function HeroSection() {
       {/* Full-width Spline cover background */}
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/M2rj0DQ6tP7dSzSz/scene.splinecode"
+          scene="https://prod.spline.design/cEecEwR6Ehj4iT8T/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
         {/* Soft gradient veil to ensure text contrast without blocking interaction */}

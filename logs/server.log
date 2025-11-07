@@ -3,23 +3,11 @@
 > vite
 
 
-  VITE v5.4.20  ready in 268 ms
+  VITE v5.4.20  ready in 276 ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.20.6.115:3000/
-5:21:37 PM [vite] warning: The character ">" is not valid inside a JSX element
-218|        <div className="pointer-events-none absolute bottom-6 right-6 -rotate-3 rounded-md shadow" style={{ background: '#FFF9C4' }}>
-219|          <div className="pointer-events-auto rotate-3 rounded-md px-4 py-3 text-[16px] leading-snug" style={{ fontFamily: 'ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, \"Comic Sans MS\", cursive' }}>
-220|            <span className="font-medium">P.S.</span> We only take 3 clients per quarter. Quality > quantity.
-   |                                                                                                  ^
-221|          </div>
-222|        </div>
-
-  Plugin: vite:esbuild
-  File: /home/workspace/src/components/AboutSection.jsx
-5:21:38 PM [vite] ✨ new dependencies optimized: @radix-ui/react-dialog
-5:21:38 PM [vite] ✨ optimized dependencies changed. reloading
-5:21:38 PM [vite] warning: The character ">" is not valid inside a JSX element
+5:27:20 PM [vite] warning: The character ">" is not valid inside a JSX element
 218|        <div className="pointer-events-none absolute bottom-6 right-6 -rotate-3 rounded-md shadow" style={{ background: '#FFF9C4' }}>
 219|          <div className="pointer-events-auto rotate-3 rounded-md px-4 py-3 text-[16px] leading-snug" style={{ fontFamily: 'ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, \"Comic Sans MS\", cursive' }}>
 220|            <span className="font-medium">P.S.</span> We only take 3 clients per quarter. Quality > quantity.
