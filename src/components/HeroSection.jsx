@@ -120,13 +120,11 @@ function ParticleBackground() {
 }
 
 export default function HeroSection() {
-  // Scroll-driven transforms
+  // Scroll-driven transforms for headline
   const { scrollY } = useScroll();
   const progress = useTransform(scrollY, [0, 400], [0, 1]);
-  const headlineScale = useTransform(progress, [0, 1], [1, 0.8]);
-  const headlineOpacity = useTransform(progress, [0, 1], [0.9, 1]);
-  const sculptureY = useTransform(progress, [0, 1], [0, -100]);
-  const sculptureOpacity = useTransform(progress, [0, 1], [1, 0.3]);
+  const headlineScale = useTransform(progress, [0, 1], [1, 0.9]);
+  const headlineOpacity = useTransform(progress, [0, 1], [1, 0.92]);
 
   // Simple timed focus indicator dot color cycling (very subtle)
   const [tick, setTick] = useState(0);
@@ -143,19 +141,32 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#FAFAFA] text-black">
-      {/* Background canvas constellation */}
+      {/* Full-width Spline cover background */}
+      <div className="absolute inset-0">
+        <Spline
+          scene="https://prod.spline.design/LU2mWMPbF3Qi1Qxh/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+        {/* Soft gradient veil to ensure text contrast without blocking interaction */}
+        <div className="pointer-events-none absolute inset-0" style={{
+          background:
+            'linear-gradient(180deg, rgba(250,250,250,0.85) 0%, rgba(250,250,250,0.65) 35%, rgba(250,250,250,0.35) 60%, rgba(250,250,250,0.15) 100%)'
+        }} />
+      </div>
+
+      {/* Background canvas constellation above Spline for subtle depth */}
       <ParticleBackground />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-6 md:grid-cols-12">
         {/* Left: Headline, subhead, CTA (approx 40%) */}
-        <div className="md:col-span-5 lg:col-span-5 xl:col-span-5">
+        <div className="md:col-span-6 lg:col-span-6 xl:col-span-6">
           <motion.h1
             style={{ scale: headlineScale, opacity: headlineOpacity, letterSpacing: '0.02em' }}
             className="font-serif text-5xl leading-tight sm:text-6xl md:text-7xl"
           >
             We Engineer Attention, Emotion, Action
           </motion.h1>
-          <p className="mt-6 max-w-md text-base leading-7 text-[#6B6B6B] sm:text-lg">
+          <p className="mt-6 max-w-xl text-base leading-7 text-[#333333] sm:text-lg">
             {subText}
           </p>
           <div className="mt-8">
@@ -169,23 +180,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right: Spline 3D object (approx 50%) */}
-        <div className="md:col-span-7 lg:col-span-7 xl:col-span-7">
-          <motion.div
-            style={{ y: sculptureY, opacity: sculptureOpacity }}
-            className="relative mx-auto aspect-[4/3] w-full max-w-2xl"
-          >
-            <div className="absolute inset-0 overflow-hidden rounded-[32px] border border-gray-200 bg-white/70 backdrop-blur-sm" />
-            <div className="absolute inset-0 overflow-hidden rounded-[32px]">
-              <Spline
-                scene="https://prod.spline.design/ezRAY9QD27kiJcur/scene.splinecode"
-                style={{ width: '100%', height: '100%' }}
-              />
-              {/* Soft gradient overlay for depth without blocking interaction */}
-              <div className="pointer-events-none absolute inset-0 rounded-[32px]" style={{ background: 'radial-gradient(60% 80% at 50% 40%, rgba(250,250,250,0) 0%, rgba(250,250,250,0) 50%, rgba(250,250,250,0.6) 100%)' }} />
-            </div>
-          </motion.div>
-        </div>
+        {/* Right column left empty to preserve Z-pattern focal priority while allowing background Spline to show */}
+        <div className="md:col-span-6" />
       </div>
     </section>
   );
